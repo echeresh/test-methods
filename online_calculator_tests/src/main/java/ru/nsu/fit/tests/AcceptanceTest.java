@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
 /**
- * @author Timur Zolotuhin (tzolotuhin@gmail.com)
+ * @author Eugene Chereshnev (eugenechereshnev@gmail.com)
  */
 @Title("Acceptance test")
 public class AcceptanceTest {
