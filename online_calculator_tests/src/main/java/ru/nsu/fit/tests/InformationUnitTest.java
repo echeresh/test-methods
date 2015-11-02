@@ -9,16 +9,45 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 
 @Title("Test for conversion of unit of inormation")
 public class InformationUnitTest extends BaseTest {
+    final String gbSize = "1.37";
+    final String mbitPerSec = "5";
+
     @Test
     @Title("Test conversion of megabytes to bits")
-    @Description("24.4567 Mb -> bits")
+    @Description("Convert GigaBytes -> bits")
     @Severity(SeverityLevel.BLOCKER)
     @Features("Multiplication")
     public void convertMegabytesToBits() {
         Calculator calculator = getCalculator();
-        String expression = "24.4567 * 1024 * 1024 * 8";
+        String expression = gbSize + " * 1024 * 1024 * 1024 * 8";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "2051576692736");
+        Assert.assertEquals(er.getResult(), "11768210391.04");
+    }
+
+    @Test(dependsOnMethods = "convertMegabytesToBits")
+    @Title("Calculate download time")
+    @Description("Calculate download of time using specific speed")
+    @Severity(SeverityLevel.BLOCKER)
+    @Features({"Multiplication", "Division"})
+    public void calculateDownloadTime() {
+        Calculator calculator = getCalculator();
+        String expression = " / (" + mbitPerSec + " * 1024 * 1024)";
+        EvalResult er = calculator.appendAndEval(expression, false);
+        Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
+        Assert.assertEquals(er.getResult(), "2244.608");
+    }
+
+    @Test(dependsOnMethods = "calculateDownloadTime")
+    @Title("Convert download time")
+    @Description("Convert download time from seconds to hours")
+    @Severity(SeverityLevel.BLOCKER)
+    @Features({"Multiplication", "Division"})
+    public void convertTimeToHours() {
+        Calculator calculator = getCalculator();
+        String expression = " / 60 / 60";
+        EvalResult er = calculator.appendAndEval(expression);
+        Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
+        Assert.assertEquals(er.getResult(), "431");
     }
 }

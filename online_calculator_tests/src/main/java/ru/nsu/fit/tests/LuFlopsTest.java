@@ -19,12 +19,12 @@ public class LuFlopsTest extends BaseTest {
     public void calcLuFlops() {
         Calculator calculator = getCalculator();
         // expression for LU flops: m*n^2 - 1 / 3 * n^3 - 1 / 2 * n^2
-        String expression = matrixRows + " * " + matrixCols + " * " + matrixCols +
+        String expression = "(" + matrixRows + " * " + matrixCols + " * " + matrixCols +
             " - 1 / 3 * " + matrixCols + " * " + matrixCols + " * " + matrixCols +
-            " - 1 / 2 * " + matrixCols + " * " + matrixCols;
+            " - 1 / 2 * " + matrixCols + " * " + matrixCols + ")";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1");
+        Assert.assertEquals(er.getResult(), "999661666.6666666");
     }
 
     @Test(dependsOnMethods = "calcLuFlops")
@@ -35,7 +35,7 @@ public class LuFlopsTest extends BaseTest {
     public void calcLuGFlops() {
         EvalResult er = calculator.appendAndEval(" / 1e9", false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1");
+        Assert.assertEquals(er.getResult(), "0.9996616666666667");
     }
 
     @Test(dependsOnMethods = "calcLuGFlops")
@@ -44,14 +44,15 @@ public class LuFlopsTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Division"})
     public void getLuEfficiencyOnXeonE52699() {
+        Calculator calculator = getCalculator();
         String timeExpression = "0.007";
         String coresNumberExpression = "36";
         String avx2DoubleFlopsPerCycleExpression = "16";
         String freqExpression = "2.3";
         EvalResult er = calculator.appendAndEval(" / " + timeExpression +
             " / " + coresNumberExpression +
-            " * " + freqExpression +
-            " * " + avx2DoubleFlopsPerCycleExpression);
+            " / " + freqExpression +
+            " / " + avx2DoubleFlopsPerCycleExpression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "1");
     }

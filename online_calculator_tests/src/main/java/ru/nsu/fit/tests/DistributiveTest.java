@@ -27,8 +27,9 @@ public class DistributiveTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Multiplication", "Brackets"})
     public void testDisclosedExpression() {
-        EvalResult er = calculator.eval(expression);
+        Calculator calculator = getCalculator();
         String expression = "(123 * 987) + (456 * 987)";
+        EvalResult er = calculator.eval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "571473");
     }

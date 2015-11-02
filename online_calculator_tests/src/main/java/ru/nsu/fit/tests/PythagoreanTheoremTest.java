@@ -11,6 +11,7 @@ public class PythagoreanTheoremTest extends BaseTest {
     private final String aExpression = "0.8";
     private final String bExpression = "0.6";
     private String c2Expression;
+    private double epsilon = 1e-10;
 
     @Test
     @Title("Find squared hypotenuse")
@@ -32,14 +33,14 @@ public class PythagoreanTheoremTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Substraction", "Multiplication", "Brackets"})
     public void checkCorrectnessThroughHeronsFormula() {
-        String cExpression = Math.sqrt(Double.parseDoulbe(c2Expression)).toString();
+        Calculator calculator = getCalculator();
+        String cExpression = Double.toString(Math.sqrt(Double.parseDouble(c2Expression)));
         String areaExpression = "0.5 * " + aExpression + " * " + bExpression;
         String semiperimeterExpression = "0.5 * (" + aExpression + " + " + bExpression + " + " + cExpression + ")";
         String heronArea2Expression = semiperimeterExpression + " * " + "(" + semiperimeterExpression + " - " + aExpression + ") * (" +
             semiperimeterExpression + " - " + bExpression + ") * (" + semiperimeterExpression + " - " + cExpression + ")";
-        EvalResult er = calculator.eval("(" + areaExpression + " * " + areaExpression + ") - " + heronArea2Expression;
-            semiperimeterExpression);
+        EvalResult er = calculator.eval("(" + areaExpression + " * " + areaExpression + ") - " + heronArea2Expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "0");
+        Assert.assertTrue(Math.abs(Double.parseDouble(er.getResult())) < epsilon);
     }
 }

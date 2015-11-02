@@ -28,9 +28,10 @@ public class MatrixDeterminantTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Multiplication"})
     public void addOneMoreNumber() {
+        Calculator calculator = getCalculator();
+        String expression = "-(0 * 29*41 + 4*5*12 + 3*6*(-5))";
         EvalResult er = calculator.eval(expression);
-        String expression = "-(0*29*41 + 4*5*12 + 3*6*(-5))";
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "-115");
+        Assert.assertEquals(er.getResult(), "-150");
     }
 }

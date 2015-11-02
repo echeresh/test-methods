@@ -24,12 +24,12 @@ public class FoodPriceTest extends BaseTest {
 
     @Test(dependsOnMethods = "sumUpPrices")
     @Title("Correct money spent")
-    @Description("Subtract another goods prices")
+    @Description("Subtract debt")
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Subtraction"})
-    public void subtractAnotherGoodsPrices() {
+    public void subtractDebt() {
         EvalResult er = calculator.appendAndEval(" - 35.53");
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1");
+        Assert.assertEquals(er.getResult(), "99.46");
     }
 }

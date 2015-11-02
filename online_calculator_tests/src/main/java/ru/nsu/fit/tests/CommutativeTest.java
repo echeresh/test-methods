@@ -27,8 +27,9 @@ public class CommutativeTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features("Addition")
     public void testReverseSum() {
-        EvalResult er = calculator.eval(expression);
+        Calculator calculator = getCalculator();
         String expression = "456 + 123";
+        EvalResult er = calculator.eval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "579");
     }

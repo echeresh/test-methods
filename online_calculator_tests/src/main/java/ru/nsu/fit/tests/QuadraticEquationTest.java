@@ -14,7 +14,7 @@ public class QuadraticEquationTest extends BaseTest {
     private final String cExpression = "2";
     private String discriminantExpression;
     private String root0Expression;
-    private String root1Expression
+    private String root1Expression;
 
     @Test
     @Title("Find discriminant")
@@ -27,7 +27,7 @@ public class QuadraticEquationTest extends BaseTest {
         EvalResult er = calculator.eval(expr);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "1");
-        discriminantExpression = Math.sqrt(Double.parseDouble(er.getResult())).toString();
+        discriminantExpression = Double.toString(Math.sqrt(Double.parseDouble(er.getResult())));
     }
 
     @Test(dependsOnMethods = "findDiscriminant")
@@ -37,7 +37,7 @@ public class QuadraticEquationTest extends BaseTest {
     @Features({"Addition", "Subtraction", "Multiplication", "Division"})
     public void findRoots() {
         Calculator calculator = getCalculator();
-        String sqrtDisriminantExpression = Math.sqrt(Double.parseDouble(discriminant)).toString();
+        String sqrtDisriminantExpression = Double.toString(Math.sqrt(Double.parseDouble(discriminantExpression)));
 
         String r0Expression = "(-" + bExpression + " + " + sqrtDisriminantExpression + ") / 2 / " + aExpression;
         EvalResult er = calculator.eval(r0Expression);
@@ -45,7 +45,7 @@ public class QuadraticEquationTest extends BaseTest {
         Assert.assertEquals(er.getResult(), "-2");
 
         String r1Expression = "(-" + bExpression + " - " + sqrtDisriminantExpression + ") / 2 / " + aExpression;
-        EvalResult er = calculator.eval(r1Expression);
+        er = calculator.eval(r1Expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "1");
     }
@@ -64,7 +64,7 @@ public class QuadraticEquationTest extends BaseTest {
         Assert.assertEquals(er.getResult(), "-" + bExpression);
 
         String rootMulExpression = root0Expression + " * " + root1Expression;
-        EvalResult er = calculator.eval(rootMulExpression);
+        er = calculator.eval(rootMulExpression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), cExpression);
     }

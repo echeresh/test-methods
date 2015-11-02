@@ -22,15 +22,15 @@ public class BinaryNumberTest extends BaseTest {
         Assert.assertEquals(er.getResult(), "7");
     }
  
-    @Test(dependsOnMethods = "addBinaries")
+    @Test(dependsOnMethods = "addBinary")
     @Title("Binary subtraction")
     @Description("Subtract binary number from decimal number")
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Subtraction", "Binary"})
     public void subtractBinary() {
-    	String expression = "- 0b111";
+    	String expression = " - 0b111";
         EvalResult er = calculator.eval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "0");
+        Assert.assertEquals(er.getResult(), "-7");
     }
 }

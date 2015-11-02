@@ -19,7 +19,7 @@ public class MaterialMixtureTest extends BaseTest {
         String expression = "1.011 * 2 + 3.895 * 4 + 5.5001 * 6 + 0.0033 * 9";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1");
+        Assert.assertEquals(er.getResult(), "50.632299999999994");
     }
 
     @Test(dependsOnMethods = "mixMaterials")
@@ -30,6 +30,6 @@ public class MaterialMixtureTest extends BaseTest {
     public void calcPartialWeight() {
         EvalResult er = calculator.appendAndEval(" / 100 * 2");
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1");
+        Assert.assertEquals(er.getResult(), "1.012646");
     }
 }

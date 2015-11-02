@@ -31,12 +31,11 @@ public class Calculator implements Closeable {
     }
 
     public EvalResult eval(String expression, boolean autoClear) {
+        clearInput();
         setInput(expression);
         AllureUtils.saveImageAttach("The expression is typed", browser.makeScreenshot());
         EvalResultStatus status = EvalResultStatus.OK;
         if (!getInput().equals(expression)) {
-            System.out.println("EXPRESSION: " + expression);
-            System.out.println("INPUT: " + getInput());
             status = EvalResultStatus.MismatchedInput;
         }
         calcInput();

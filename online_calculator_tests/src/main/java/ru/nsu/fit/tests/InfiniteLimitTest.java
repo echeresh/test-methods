@@ -28,7 +28,7 @@ public class InfiniteLimitTest extends BaseTest {
     @Features({"Addition", "Multiplication", "Division"})
     public void tryToSetResultToZero() {
         Calculator calculator = getCalculator();
-        String expression =  " * 0";
+        String expression = " * 0";
         EvalResult er = calculator.appendAndEval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "NaN");
@@ -40,8 +40,9 @@ public class InfiniteLimitTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Multiplication", "Division"})
     public void computeLimitAftersimplification() {
-        EvalResult er = calculator.eval(expression);
+        Calculator calculator = getCalculator();
         String expression = "Infinity / (1 + 1 / Infinity)";
+        EvalResult er = calculator.eval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "Infinity");
     }

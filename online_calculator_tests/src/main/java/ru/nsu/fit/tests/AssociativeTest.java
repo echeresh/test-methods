@@ -13,23 +13,23 @@ public class AssociativeTest extends BaseTest {
     @Description("Origin expression")
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Subtraction"})
-    public void solveTask() {
+    public void testFirstCase() {
         Calculator calculator = getCalculator();
-        // solve task
         String expression = "(123 + 456) - 987";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "-408");
     }
  
-    @Test(dependsOnMethods = "solveTask")
+    @Test(dependsOnMethods = "testFirstCase")
     @Title("Proof")
     @Description("Proof of associative property")
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Subtraction"})
-    public void addOneMoreNumber() {
-        EvalResult er = calculator.eval(expression);
+    public void testSecondCase() {
+        Calculator calculator = getCalculator();
         String expression = "123 + (456 - 987)";
+        EvalResult er = calculator.eval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "-408");
     }
