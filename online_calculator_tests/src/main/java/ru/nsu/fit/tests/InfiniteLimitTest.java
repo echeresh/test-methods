@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Студенту стало интересно, как калькулятор посчитает неопределенности.
+*/
+
 @Title("Compute limit of x^2 / (x + 1) when x -> +inf")
 public class InfiniteLimitTest extends BaseTest {
     @Test

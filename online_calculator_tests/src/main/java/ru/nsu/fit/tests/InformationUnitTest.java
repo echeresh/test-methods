@@ -6,6 +6,10 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Нужно посчить за сколько скачается файл заданного размера с ограниченным трафиком.
+*/
 
 @Title("Test for conversion of unit of inormation")
 public class InformationUnitTest extends BaseTest {

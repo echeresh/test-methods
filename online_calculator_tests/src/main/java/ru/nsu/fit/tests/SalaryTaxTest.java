@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Повысили зп на работе, нужно посчитать сколько за год государство скомуниздит себе.
+*/
+
 @Title("Calculate yearly salary tax")
 public class SalaryTaxTest extends BaseTest {
     final String monthSalaryExpression = "10000";

@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Бабушка решила посчитать не на**али ли ее в магазине.
+*/
+
 @Title("LU flops test")
 public class FoodPriceTest extends BaseTest {
     @Test

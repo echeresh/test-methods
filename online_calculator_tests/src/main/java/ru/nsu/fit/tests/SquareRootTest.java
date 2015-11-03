@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+В школе задали найти квадатный корень из 3х вавилоновским способом.
+*/
+
 @Title("Square root test")
 public class SquareRootTest extends BaseTest {
     private double s = 3;

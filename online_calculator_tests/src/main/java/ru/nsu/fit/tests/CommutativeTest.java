@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Студент не верит преподавателям о коммутативности сложения.
+*/
+
 @Title("Test commutative property of addition")
 public class CommutativeTest extends BaseTest {
     @Test

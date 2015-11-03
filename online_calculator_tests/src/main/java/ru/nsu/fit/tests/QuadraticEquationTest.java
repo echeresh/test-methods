@@ -6,6 +6,12 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
  
+/*
+Legent:
+В школе задали найти корни квадратного уравнения.
+*/
+
+
 @Title("Find roots of quadratic equation")
 public class QuadraticEquationTest extends BaseTest {
     //x^2 - 3 * x + 2 = 0

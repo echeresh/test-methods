@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Нужно посчитать массу полученного вещества, после смешения и разделения по пробиркам.
+*/
+
 @Title("Test for computing weight of mixed materials")
 public class MaterialMixtureTest extends BaseTest {
     @Test

@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+В школе задали сложить трехзначные вещественные числа.
+*/
+
 @Title("Test for school task")
 public class SchoolTaskTest extends BaseTest {
     @Test

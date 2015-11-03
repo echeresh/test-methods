@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+В школе сказали проверить Теорему пифагора на конкретном примере.
+*/
+
 @Title("Test for mathematical school task on Pythagorean theorem")
 public class PythagoreanTheoremTest extends BaseTest {
     private final String aExpression = "0.8";

@@ -6,6 +6,11 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Нужно посчитать определеитель матрицы 3х3.
+*/
+
 @Title("Matrix's determinant")
 public class MatrixDeterminantTest extends BaseTest {
     @Test

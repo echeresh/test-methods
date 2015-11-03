@@ -6,6 +6,10 @@ import org.testng.annotations.Test;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
+/*
+Legent:
+Программист пишет бинарные тысты для калькулятора, нужно посчитать результат бинарных операций на корректном калькуляторе.
+*/
 
 @Title("Test for operations with binary numbers")
 public class BinaryNumberTest extends BaseTest {
