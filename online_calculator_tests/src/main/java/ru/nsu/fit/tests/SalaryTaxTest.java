@@ -17,7 +17,7 @@ public class SalaryTaxTest extends BaseTest {
     @Features({"Addition", "Subtraction"})
     public void calculateYearlyIncome() {
         Calculator calculator = getCalculator();
-        String expression = monthSalaryExpression * "* 12";
+        String expression = monthSalaryExpression + " * 12";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "120000");
