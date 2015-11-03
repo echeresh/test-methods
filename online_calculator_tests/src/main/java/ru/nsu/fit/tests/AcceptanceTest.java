@@ -18,6 +18,7 @@ public class AcceptanceTest {
 
     private static final By inputElement = By.xpath("//input[@type='text' and @name='Input']");
     private static final By equalElement = By.xpath("//input[@type='button' and @name='DoIt']");
+    private static final double epsilon = 1e-10;
 
     @Test
     @Title("Open page")
@@ -63,7 +64,7 @@ public class AcceptanceTest {
             AllureUtils.saveImageAttach("The expression is typed", browser.makeScreenshot());
             browser.click(equalElement);
             AllureUtils.saveImageAttach("Result", browser.makeScreenshot());
-            Assert.assertEquals(browser.getValue(inputElement), "-0.28094");
+            Assert.assertTrue(Math.abs(Double.parseDouble(browser.getValue(inputElement)) + 0.28094) < epsilon);
         }
     }
 }

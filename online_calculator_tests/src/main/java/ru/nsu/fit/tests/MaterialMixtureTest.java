@@ -13,6 +13,9 @@ Legent:
 
 @Title("Test for computing weight of mixed materials")
 public class MaterialMixtureTest extends BaseTest {
+
+    private static final double epsilon = 1e-10;
+
     @Test
     @Title("Mix materials")
     @Description("Mix several materials by different proportions")
@@ -23,7 +26,7 @@ public class MaterialMixtureTest extends BaseTest {
         String expression = "1.011 * 2 + 3.895 * 4 + 5.5001 * 6 + 0.0033 * 9";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "50.6323");
+        Assert.assertTrue(Math.abs(Double.parseDouble(er.getResult()) - 50.6323) < epsilon);
     }
 
     @Test(dependsOnMethods = "mixMaterials")
@@ -34,6 +37,6 @@ public class MaterialMixtureTest extends BaseTest {
     public void calcPartialWeight() {
         EvalResult er = calculator.appendAndEval(" / 100 * 2");
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1.012646");
+        Assert.assertTrue(Math.abs(Double.parseDouble(er.getResult()) - 1.012646) < epsilon);
     }
 }

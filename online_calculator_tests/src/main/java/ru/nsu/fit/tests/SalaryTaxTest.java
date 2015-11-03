@@ -38,6 +38,6 @@ public class SalaryTaxTest extends BaseTest {
         String expression = " * 0.87";
         EvalResult er = calculator.appendAndEval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "123");
+        Assert.assertEquals(er.getResult(), "104400");
     }
 }

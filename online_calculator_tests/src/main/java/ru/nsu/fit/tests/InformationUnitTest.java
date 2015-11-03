@@ -52,6 +52,6 @@ public class InformationUnitTest extends BaseTest {
         String expression = " / 60 / 60";
         EvalResult er = calculator.appendAndEval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "431");
+        Assert.assertEquals(er.getResult(), "0.6235022222222223");
     }
 }

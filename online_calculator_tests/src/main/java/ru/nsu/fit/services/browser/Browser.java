@@ -1,8 +1,8 @@
 package ru.nsu.fit.services.browser;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.chrome.ChromeProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.nsu.fit.shared.ImageUtils;
@@ -20,11 +20,12 @@ public class Browser implements Closeable {
 
     public Browser() {
         // create profile
-        FirefoxProfile profile = new FirefoxProfile();
+        //ChromeProfile profile = new ChromeProfile();
 
         // create web driver
         try {
-            webDriver = new FirefoxDriver(profile);
+            System.setProperty("webdriver.chrome.driver","C:\\chromedriver.exe");
+            webDriver = new ChromeDriver(/*profile*/);
 
             webDriver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
         } catch (Exception ex) {

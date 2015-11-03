@@ -8,11 +8,14 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 
 /*
 Legent:
-Бабушка решила посчитать не на**али ли ее в магазине.
+Бабушка решила посчитать не обманули ли ее в магазине.
 */
 
 @Title("LU flops test")
 public class FoodPriceTest extends BaseTest {
+
+    private static final double epsilon = 1e-10;
+
     @Test
     @Title("Sum up prices")
     @Description("Check whether or not sum of prices is correct")
@@ -35,6 +38,6 @@ public class FoodPriceTest extends BaseTest {
     public void subtractDebt() {
         EvalResult er = calculator.appendAndEval(" - 35.53");
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "99.46");
+        Assert.assertTrue(Math.abs(Double.parseDouble(er.getResult()) - 99.46) < epsilon);
     }
 }
