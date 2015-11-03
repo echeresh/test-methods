@@ -54,6 +54,6 @@ public class LuFlopsTest extends BaseTest {
             " / " + freqExpression +
             " / " + avx2DoubleFlopsPerCycleExpression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "1");
+        Assert.assertEquals(er.getResult(), "0.07545755334138488");
     }
 }

@@ -15,16 +15,15 @@ public class MaterialMixtureTest extends BaseTest {
     @Features({"Addition", "Unary"})
     public void mixMaterials() {
         Calculator calculator = getCalculator();
-        // solve task
         String expression = "1.011 * 2 + 3.895 * 4 + 5.5001 * 6 + 0.0033 * 9";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
-        Assert.assertEquals(er.getResult(), "50.632299999999994");
+        Assert.assertEquals(er.getResult(), "50.6323");
     }
 
     @Test(dependsOnMethods = "mixMaterials")
     @Title("Calculate partial weight of mixture")
-    @Description("Calculate several procents from mixture")
+    @Description("Calculate 2% from mixture")
     @Severity(SeverityLevel.BLOCKER)
     @Features({"Addition", "Unary"})
     public void calcPartialWeight() {

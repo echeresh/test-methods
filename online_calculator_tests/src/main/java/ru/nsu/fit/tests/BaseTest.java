@@ -7,8 +7,6 @@ import org.testng.annotations.*;
 import ru.yandex.qatools.allure.annotations.*;
 import ru.yandex.qatools.allure.model.SeverityLevel;
 
-
-//@Title("Acceptance test")
 public abstract class BaseTest {
 	Calculator calculator;
 

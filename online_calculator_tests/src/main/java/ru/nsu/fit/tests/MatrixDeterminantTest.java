@@ -9,27 +9,26 @@ import ru.yandex.qatools.allure.model.SeverityLevel;
 @Title("Matrix's determinant")
 public class MatrixDeterminantTest extends BaseTest {
     @Test
-    @Title("Addition")
-    @Description("Determinant of matrix")
+    @Title("Determinant of matrix 3 x 3")
+    @Description("Calculate sum part of determinant expression")
     @Severity(SeverityLevel.BLOCKER)
-    @Features({"Multiplication", "Addition"})
-    public void solveTask() {
+    @Features({"Multiplication", "Addition", "Unary"})
+    public void calculateFirstPartOfDeterminant() {
         Calculator calculator = getCalculator();
-        // solve task
-        String expression = "4*29*(-5) + 3*5*41 + 0*6*12";
+        String expression = "4 * 29 * (-5) + 3 * 5 * 41 + 0 * 6 * 12";
         EvalResult er = calculator.eval(expression, false);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "35");
     }
  
-    @Test(dependsOnMethods = "solveTask")
-    @Title("Subtraction")
-    @Description("Proof of distributive property")
+    @Test(dependsOnMethods = "calculateFirstPartOfDeterminant")
+    @Title("Subtract rest part of determinant expression")
+    @Description("Calculate sum part of determinant expression")
     @Severity(SeverityLevel.BLOCKER)
-    @Features({"Addition", "Multiplication"})
-    public void addOneMoreNumber() {
+    @Features({"Addition", "Subtraction", "Multiplication", "Unary"})
+    public void calculateSecondPartOfDeterminant() {
         Calculator calculator = getCalculator();
-        String expression = "-(0 * 29*41 + 4*5*12 + 3*6*(-5))";
+        String expression = " - (0 * 29 * 41 + 4 * 5 * 12 + 3 * 6 * (-5))";
         EvalResult er = calculator.eval(expression);
         Assert.assertTrue(er.getStatus() != EvalResultStatus.MismatchedInput);
         Assert.assertEquals(er.getResult(), "-150");
